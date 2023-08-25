@@ -239,16 +239,171 @@ namespace HelloWorld
             */
 
             //----------------------------------------------------------------------------  Conditional Statements  ------------------------------------------------------------------------------------
+            /*
+            int myInt = 5;
+            int mySecondInt = 10;
 
-            myInt = 5;
-            mySecondInt = 10;
+            if(myInt < mySecondInt)
+            {
+                myInt += 10;
+            }
 
+            Console.WriteLine(myInt + "\n");
+
+            string myCow = "cow";
+            string myCapitaizedCow = "Cow";
+
+            if(myCow == myCapitaizedCow)
+            {
+                Console.WriteLine("Equal");
+            }
+            else if(myCow == myCapitaizedCow.ToLower()) 
+            {
+                Console.WriteLine("Equal wthout case sensitivity");
+            }
+            else
+            {
+                Console.WriteLine("Not Equal");
+            }
+
+            Console.WriteLine("");
+
+            switch (myCow)
+            {
+                case "cow":
+                    Console.WriteLine("Lowercase");
+                    break;
+                case "Cow":
+                    Console.WriteLine("Capitaized");
+                    break;
+                default:
+                    break;
+            }
+            */
 
             //----------------------------------------------------------------------------  Loops  ------------------------------------------------------------------------------------
 
+            /*
+            int[] intsToCompress = new int[] {10, 15, 20, 25, 30, 12, 34};
+            DateTime startTime = DateTime.Now;
+
+            int totalValue = intsToCompress[0] + intsToCompress[1] + intsToCompress[2] + intsToCompress[3] + intsToCompress[4] + intsToCompress[5] + intsToCompress[6];
+
+            Console.WriteLine("\nno loop :" + (DateTime.Now - startTime).TotalSeconds);
+            Console.WriteLine(totalValue); //146
+
+            totalValue = 0;
+            startTime = DateTime.Now;
+
+            for (int i = 0; i < intsToCompress.Length; i++)
+            {
+                totalValue += intsToCompress[i];
+            }
+
+            Console.WriteLine("\nfor loop :" + (DateTime.Now - startTime).TotalSeconds);
+            Console.WriteLine(totalValue);
+
+            totalValue = 0;
+            startTime = DateTime.Now;
+
+            foreach (var intsForCompress in intsToCompress)
+            {
+                totalValue += intsForCompress;
+            }
+
+            Console.WriteLine("\nforeach loop :" + (DateTime.Now - startTime).TotalSeconds);
+            Console.WriteLine(totalValue);
+
+
+            int index = 0;
+            totalValue = 0;
+            startTime = DateTime.Now;
+
+            while (index < intsToCompress.Length)
+            {
+                totalValue += intsToCompress[index];
+                index++;
+            }
+
+            Console.WriteLine("\nwhile loop :" + (DateTime.Now - startTime).TotalSeconds);
+            Console.WriteLine(totalValue);
+
+
+            index = 0;
+            totalValue = 0;
+            startTime = DateTime.Now;
+
+            do
+            {
+                totalValue += intsToCompress[index];
+                index++;
+            }
+            while (index < intsToCompress.Length);
+
+            Console.WriteLine("\ndo while loop :" + (DateTime.Now - startTime).TotalSeconds);
+            Console.WriteLine(totalValue);
+
+            totalValue = 0;
+            startTime = DateTime.Now;
+
+            totalValue = intsToCompress.Sum();
+
+            Console.WriteLine("\nSum() :" + (DateTime.Now - startTime).TotalSeconds);
+            Console.WriteLine(totalValue);
+
+
+            totalValue = 0;
+
+            foreach (var intsForCompress in intsToCompress)
+            {
+                if (intsForCompress > 20)
+                {
+                    totalValue += intsForCompress;
+                }
+            }
+
+            Console.WriteLine("\n\n" + totalValue);
+            */
+
             //----------------------------------------------------------------------------  Methods  ------------------------------------------------------------------------------------
+
+            int[] intsToCompress = new int[] { 10, 15, 20, 25, 30, 12, 34 };
+            int totalValue = 0;
+
+            DateTime startTime = DateTime.Now;
+
+            totalValue = intsToCompress.Sum();
+
+            Console.WriteLine("\nSum() :" + (DateTime.Now - startTime).TotalSeconds);
+            Console.WriteLine(totalValue);
+
+            startTime = DateTime.Now;
+
+            totalValue = GetSum(intsToCompress);
+
+            Console.WriteLine("\nGetSum() :" + (DateTime.Now - startTime).TotalSeconds);
+            Console.WriteLine(totalValue);
+
+
+            int[] intsToCompress2 = new int[] { 23, 23, 53, 56, 83, 92};
+
+            totalValue = GetSum(intsToCompress2);
+            Console.WriteLine("\n" + totalValue);
+
 
             //----------------------------------------------------------------------------  Scope  ------------------------------------------------------------------------------------
         }
+
+        private static int GetSum(int[] intsToCompress) //
+        {
+            int totalValue = 0;
+            foreach (var intsForCompress in intsToCompress)
+            {
+                totalValue += intsForCompress;
+            }
+
+            return totalValue;
+        }
+
     }
 }
