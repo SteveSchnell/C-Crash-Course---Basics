@@ -5,6 +5,8 @@ namespace HelloWorld
 {
     internal class Program
     {
+        static int accessibleInt = 7;
+         int accessible2Int = 4;
         static void Main(string[] args)
         {
             /*
@@ -366,7 +368,7 @@ namespace HelloWorld
             */
 
             //----------------------------------------------------------------------------  Methods  ------------------------------------------------------------------------------------
-
+            /*
             int[] intsToCompress = new int[] { 10, 15, 20, 25, 30, 12, 34 };
             int totalValue = 0;
 
@@ -390,8 +392,23 @@ namespace HelloWorld
             totalValue = GetSum(intsToCompress2);
             Console.WriteLine("\n" + totalValue);
 
+            */
 
             //----------------------------------------------------------------------------  Scope  ------------------------------------------------------------------------------------
+
+            int accessibleInt = 5;
+
+            Console.WriteLine(accessibleInt);
+            //Console.WriteLine(accessible2Int);
+
+            
+
+        }
+
+        void TestMethod()
+        {
+            Console.WriteLine(accessibleInt);
+            Console.WriteLine(accessible2Int);
         }
 
         private static int GetSum(int[] intsToCompress) //
