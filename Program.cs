@@ -1,14 +1,17 @@
-﻿using System;
+﻿    /*
+
+using System;
 using System.Drawing;
 
-namespace HelloWorld
-{
-    internal class Program
-    {
-        static int accessibleInt = 7;
-         int accessible2Int = 4;
-        static void Main(string[] args)
-        {
+//namespace HelloWorld
+//{
+
+  //  internal class Program
+  //  {
+  //      static int accessibleInt = 7;
+  //       int accessible2Int = 4;
+   //     static void Main(string[] args)
+  //      {
             /*
             //----------------------------------------------------------------------------  Console.WriteLine  ------------------------------------------------------------------------------------
              
@@ -395,32 +398,41 @@ namespace HelloWorld
             */
 
             //----------------------------------------------------------------------------  Scope  ------------------------------------------------------------------------------------
-
-            int accessibleInt = 5;
+            /*
+            int accessibleIntInMethod = 5;
 
             Console.WriteLine(accessibleInt);
             //Console.WriteLine(accessible2Int);
 
-            
+            //TestMethod();
+            */
 
-        }
+            //----------------------------------------------------------------------------  Models  ------------------------------------------------------------------------------------
 
+
+
+  //      }
+
+        /*
         void TestMethod()
         {
             Console.WriteLine(accessibleInt);
             Console.WriteLine(accessible2Int);
         }
 
-        private static int GetSum(int[] intsToCompress) //
+        private static int GetSum(int[] compressableIntArray) //
         {
             int totalValue = 0;
-            foreach (var intsForCompress in intsToCompress)
+            foreach (var intsForCompress in compressableIntArray)
             {
                 totalValue += intsForCompress;
             }
 
             return totalValue;
         }
+        */
+  //  }
 
-    }
-}
+//}
+
+//*/
