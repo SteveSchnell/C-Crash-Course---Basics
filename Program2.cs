@@ -22,16 +22,6 @@ namespace HelloWorld
 
         public string VideoCard { get; set; }
 
-        public Computer()
-        {
-            if(VideoCard == null)
-            {
-                VideoCard = "";
-            }
-            if (Motherboard == null)
-            {
-                Motherboard = "";
-            }
         }
     }
 
