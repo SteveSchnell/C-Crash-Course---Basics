@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dapper;
 using HelloWorld.Models;
+using Microsoft.Data.SqlClient;
 
 namespace HelloWorld
 {
@@ -11,6 +14,17 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
+            string connectionString = "Server=localhost;Database=DotNetCourseDatabase;TrustServerCertificate=true;Trusted_Connection=true;";
+
+            IDbConnection dbConnection = new SqlConnection(connectionString);
+
+            string sqlCommand = "SELECT GETDATE()";
+
+            DateTime rightNow = dbConnection.QuerySingle<DateTime>(sqlCommand);
+
+            Console.WriteLine(rightNow);
+
+            /*
             Computer myComputer = new Computer()
             {
                 Motherboard = "Z690",
@@ -18,7 +32,7 @@ namespace HelloWorld
                 HasWiFi = true,
                 ReleaseDate = DateTime.Now,
                 Price = 943.85m,
-                VideoCard = "RTX 370"
+                VideoCard = "RTX 3070"
 
             };
 
@@ -27,6 +41,7 @@ namespace HelloWorld
             Console.WriteLine(myComputer.HasWiFi);
             Console.WriteLine(myComputer.VideoCard);
             Console.WriteLine(myComputer.ReleaseDate);
+            */
         }
     }
 }
