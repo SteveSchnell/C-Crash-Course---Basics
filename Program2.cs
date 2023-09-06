@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using AutoMapper;
 using Dapper;
 using HelloWorld.Data;
 using HelloWorld.Models;
@@ -67,7 +68,50 @@ namespace HelloWorld
             
             //Console.WriteLine(ComputersJson);
             */
-           string ComputersJson = File.ReadAllText("Computers.json");
+
+
+            string ComputersJson = File.ReadAllText("ComputersSnake.json");
+
+            /*
+            Mapper mapper = new Mapper(new MapperConfiguration((cfg) =>
+            {
+                cfg.CreateMap<ComputerSnake, Computer>()
+                .ForMember(destination => destination.ComputerId, options => options.MapFrom(source => source.computer_id))
+                .ForMember(destination => destination.CPUCores, options => options.MapFrom(source => source.cpu_cores))
+                .ForMember(destination => destination.HasLTE, options => options.MapFrom(source => source.has_lte))
+                .ForMember(destination => destination.HasWiFi, options => options.MapFrom(source => source.has_wifi))
+                .ForMember(destination => destination.Motherboard, options => options.MapFrom(source => source.motherboard))
+                .ForMember(destination => destination.VideoCard, options => options.MapFrom(source => source.video_card))
+                .ForMember(destination => destination.ReleaseDate, options => options.MapFrom(source => source.release_date))
+                .ForMember(destination => destination.Price, options => options.MapFrom(source => source.price));
+            }));
+            */
+
+            /*
+            IEnumerable<ComputerSnake>? ComputersSystem = System.Text.Json.JsonSerializer.Deserialize<IEnumerable<ComputerSnake>>(ComputersJson);
+
+            if (ComputersSystem != null)
+            {
+                IEnumerable<Computer> ComputersResult  = mapper.Map<IEnumerable<Computer>>(ComputersSystem);
+
+                foreach (Computer computer in ComputersResult)
+                {
+                    Console.WriteLine(computer.Motherboard);
+                }
+            }
+            */
+
+            IEnumerable<Computer>? ComputersSystem = System.Text.Json.JsonSerializer.Deserialize<IEnumerable<Computer>>(ComputersJson);
+
+            if (ComputersSystem != null)
+            {         
+                foreach (Computer computer in ComputersSystem)
+                {
+                    Console.WriteLine(computer.Motherboard);
+                }
+            }
+
+            /*
 
             JsonSerializerOptions Options = new JsonSerializerOptions()
             {
@@ -114,6 +158,7 @@ namespace HelloWorld
             string computerCopySystem = System.Text.Json.JsonSerializer.Serialize(ComputersSystem);
 
             File.WriteAllText("computerCopySystemt.txt", computerCopySystem);
+            */
         }
 
         static string EsceprSingleQuote(string input)
